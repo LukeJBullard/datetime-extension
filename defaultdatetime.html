@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Default Datetime Parameters</title>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+
+    <!-- Extensions Library (this will be hosted on a CDN eventually) -->
+    <script src="./lib/tableau/tableau-extensions-1.1.0.js"></script>
+
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.23/moment-timezone.min.js"></script>
+
+    <!-- Our extension's code -->
+    <script src="./defaultdatetime.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="parameters">
+        <h4>Default Datetime Parameters</h4>
+        <div class="table-responsive">
+          <table id="loading" class="table">
+            <tbody><tr><td>Loading...</td></tr></tbody>
+          </table>
+          <div id="form" class="hidden">
+            <table id="parameterTable" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Default Value</th>
+                </tr>
+              </thead>
+              <tbody><!-- Stuff will be inserted here --></tbody>
+            </table>
+            <div>
+              <button id="saveButton">Save</button>
+            </div>
+          </div>
+          <table id="addParameterWarning" class="table bg-danger hidden">
+            <tbody><tr><td>To use this extension, add a date or datetime parameter to the workbook.</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
