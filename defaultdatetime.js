@@ -212,6 +212,12 @@ var DefaultDateTime = {
         DefaultDateTime.refreshUI();
     },
 
+    // called when the close button is clicked
+    closeButtonClicked()
+    {
+        tableau.extensions.ui.closeDialog('');
+    },
+
     // called when tableau initialization succeeded
     initialized: async function()
     {
@@ -224,16 +230,10 @@ var DefaultDateTime = {
 
         $("#loading").addClass("hidden");
     },
-
-    // called when there is an error during tableau initialization
-    initializedError(err)
-    {
-        // something went wrong in initialization
-        $("#resultBox").html("Error while Initializing: " + err.toString());
-    },
 };
 
 $(document).ready(function() {
-    tableau.extensions.initializeAsync().then(DefaultDateTime.initialized, DefaultDateTime.initializedError);
+    tableau.extensions.initializeDialogAsync().then(DefaultDateTime.initialized);
     $("#saveButton").on("click", DefaultDateTime.saveButtonClicked);
+    $("#closeButton").on("click", DefaultDateTime.closeButtonClicked);
 });
