@@ -1,7 +1,4 @@
 $(document).ready(function() {
-    DefaultDateTime.setDashboard();
-    DefaultDateTime.applyParameterValues();
-    
     function configure() { 
         const defaultIntervalInMin = 5;
         const popupUrl = "https://lukejbullard.github.io/datetime-extension/defaultdatetime.html";
@@ -13,6 +10,9 @@ $(document).ready(function() {
         });
     }
 
-    tableau.extensions.initializeAsync({'configure': configure});
+    tableau.extensions.initializeAsync({'configure': configure}).then(() => {
+        DefaultDateTime.setDashboard();
+        DefaultDateTime.applyParameterValues();
+    });
     $("#configure").on("click", configure);
 });
