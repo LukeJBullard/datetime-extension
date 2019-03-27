@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    DefaultDateTime.setDashboard();
+    DefaultDateTime.applyParameterValues();
+    
     function configure() { 
         const defaultIntervalInMin = 5;
         const popupUrl = "https://lukejbullard.github.io/datetime-extension/defaultdatetime.html";

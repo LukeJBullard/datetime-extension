@@ -22,6 +22,14 @@
 
     <!-- Our extension's code -->
     <script src="./defaultdatetime.js"></script>
+    
+    <script type="text/javascript">
+      $(document).ready(function() {
+          tableau.extensions.initializeDialogAsync().then(DefaultDateTime.initialized);
+          $("#saveButton").on("click", DefaultDateTime.saveButtonClicked);
+          $("#closeButton").on("click", DefaultDateTime.closeButtonClicked);
+      });
+    </script>
   </head>
   <body>
     <div class="container">

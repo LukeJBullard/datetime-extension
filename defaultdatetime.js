@@ -218,10 +218,15 @@ var DefaultDateTime = {
         tableau.extensions.ui.closeDialog('');
     },
 
+    setDashboard()
+    {
+        DefaultDateTime.dashboard = tableau.extensions.dashboardContent.dashboard;
+    },
+
     // called when tableau initialization succeeded
     initialized: async function()
     {
-        DefaultDateTime.dashboard = tableau.extensions.dashboardContent.dashboard;
+        DefaultDateTime.setDashboard();
 
         await DefaultDateTime.findNewParameters();
         await DefaultDateTime.cleanSettings();
@@ -231,9 +236,3 @@ var DefaultDateTime = {
         $("#loading").addClass("hidden");
     },
 };
-
-$(document).ready(function() {
-    tableau.extensions.initializeDialogAsync().then(DefaultDateTime.initialized);
-    $("#saveButton").on("click", DefaultDateTime.saveButtonClicked);
-    $("#closeButton").on("click", DefaultDateTime.closeButtonClicked);
-});
